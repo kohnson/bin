@@ -49,10 +49,6 @@ git pull
 Set-Location $HOME\src\sneedacity
 upd "Sneedacity - Pulling..."
 git pull
-$choice_rebuild = Read-Host -Prompt "Rebuild? (y/N)"
-Switch ($choice_rebuild) {
-	"y" {devenv $HOME\Programs\ProgFiles\Sneedacity\Sneedacity.sln /Build}
-}
 
 # Vim Plug
 nvim -c PlugUpdate
