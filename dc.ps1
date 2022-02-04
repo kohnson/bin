@@ -1,6 +1,6 @@
 #!/usr/bin/pwsh
 ## Multi-purpose document compilation script
-## Requires pandoc and R
+## Requires R Markdown (depends on Pandoc and LaTeX)
 
 param (
 	[Parameter(Mandatory=$true)] # input file
