@@ -9,15 +9,26 @@ Function cpask {
 	
 	If ($(Read-Host -Prompt "Copy $n? [Y/n]") -ne "n") {Copy-Item -Path $i -Destination $d}
 }
-$DotDir = "/Users/Angelo/proj/dotfiles/"
+$DotDir = "~/dotfiles/"
 Set-Location $DotDir
 
 # PowerShell stuff
-cpask -i $(Get-PoshContext | Select-String ".omp.json") -d "./common/pwsh/" -n "Oh-My-Posh prompt"
-cpask -i $PROFILE -d "./common/pwsh/" -n "PowerShell profile"
+cpask $(Get-PoshContext | Select-String ".omp.json") "./common/pwsh/" "Oh-My-Posh prompt"
+cpask $PROFILE "./common/pwsh/" "PowerShell profile"
 
 # ConEmu
-cpask -i "$HOME/scoop/persist/conemu/ConEmu/ConEmu.xml" -d "./windows/" -n "ConEmu config"
+cpask "$HOME/scoop/persist/conemu/ConEmu/ConEmu.xml" "./windows/" "ConEmu config"
 
 # Neovim
-cpask -i "$env:LOCALAPPDATA/nvim/init.vim" -d "./common/neovim"
+cpask "$env:LOCALAPPDATA/nvim/init.vim" "./common/neovim" "Neovim config"
+
+# Qutebrowser
+cpask "$env:APPDATA/qutebrowser/config/autoconfig.yml" "./common/qutebrowser/autoconfig.yml" "Qutebrowser config"
+
+# Git
+cpask "~/.gitconfig" "./common/" "Git config"
+
+# Winfetch config
+cpask "~/.config/winfetch/config.ps1" "./windows/winfetch/config.ps1" "Winfetch config"
+
+Set-Location -
