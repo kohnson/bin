@@ -16,6 +16,10 @@ Function upd {
 upd "Updating PowerShell Modules..."
 Update-Module
 
+# PowerShell help
+upd "Updating PowerShell Help..."
+Update-Help -UICulture en-US
+
 # Chocolatey
 ""
 cup all
@@ -37,6 +41,7 @@ upd "Updating TeX Live packages..."
 tlmgr update -self -all
 
 # R Packages
+""
 Rscript -e "update.packages(repos='https://mirror.csclub.uwaterloo.ca/CRAN/')"
 
 #  Git programs
